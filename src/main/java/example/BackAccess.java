@@ -202,6 +202,11 @@ public class BackAccess {
             ResponseData responseData = FriendCircleOpt.getDeptUserScore(msg);
             httpResponse(ctx, msg, responseData);
         }
+        //获取某部门内部成员的积分数据明细
+        else if (uri.equals("/getDeptScoreDetail")) {
+            ResponseData responseData = FriendCircleOpt.getDeptScoreDetail(msg);
+            httpResponse(ctx, msg, responseData);
+        }
         //获取用户积分数据
         else if (uri.equals("/getUserScore")) {
             ResponseData responseData = FriendCircleOpt.getUserScore(msg);

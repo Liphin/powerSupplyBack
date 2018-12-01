@@ -46,6 +46,10 @@ public interface DynamicInfoMapper {
     @Select("select dept_from, sum(score) from dynamicinfo where dept_from>1 group by dept_from order by sum(score) desc")
     public List<Map> getDeptScore();
 
+    //获取所有积分信息
+    @Select("select wx_user_id,wx_user_name,dept_from,score from dynamicinfo where dept_from>1 and score>0")
+    public List<Map> getDeptScoreDetail();
+
     //对指定部门的用户进行group by操作，计算score的值，按照score大小进行排序
     @Select("select wx_user_id, wx_user_name, sum(score) from dynamicinfo where dept_from=#{dept_from} group by wx_user_id order by sum(score) desc")
     public List<Map> getDeptUserScore(int dept_from);

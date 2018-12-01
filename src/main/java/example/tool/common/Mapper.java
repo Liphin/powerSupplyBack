@@ -98,6 +98,7 @@ public class Mapper {
     public static final String GET_FRIEND_IMAGE = "getFriendImage";
     public static final String GET_FRIEND_USER_INFO = "getUserFriendInfoToPhone";
     public static final String GET_DEPT_SCORE = "getDeptScore";
+    public static final String GET_DEPT_SCORE_DETAIL = "getDeptScoreDetail";
     public static final String GET_DEPT_USER_SCORE = "getDeptUserScore";
     public static final String GET_PUBLISHED_FRIEND_TO_PHONE = "getPublishedFriendToPhone";
     public static final String GET_USER_SCORE = "getUserScore";

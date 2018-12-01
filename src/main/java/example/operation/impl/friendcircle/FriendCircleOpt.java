@@ -415,6 +415,34 @@ public class FriendCircleOpt {
 
 
     /**
+     * 获取所有部门积分数据明细
+     *
+     * @param msg
+     * @return
+     */
+    public static ResponseData getDeptScoreDetail(Object msg) {
+        ResponseData responseData = new ResponseData(StatusCode.ERROR.getValue());
+        SqlSession sqlSession = MybatisUtils.getSession();
+        String message = "";
+        try {
+            List<Map> deptScoreDetailList = sqlSession.selectList(Mapper.GET_DEPT_SCORE_DETAIL);
+            Assemble.responseSuccessSetting(responseData, deptScoreDetailList);
+
+        } catch (Exception e) {
+            message = "sys error";
+            FriendCircleOpt.logger.debug(message, e);
+            Assemble.responseErrorSetting(responseData, 500, message);
+
+        } finally {
+            CommonService.databaseCommitClose(sqlSession, responseData, false);
+        }
+        return responseData;
+    }
+
+
+
+
+    /**
      * 获取用户积分数据
      *
      * @param msg
