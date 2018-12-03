@@ -57,8 +57,8 @@ public class Checker {
         return dept_check;
     }
 
-    public void setDept_check(int dept_from) {
-        this.dept_from = dept_check;
+    public void setDept_check(int dept_check) {
+        this.dept_check = dept_check;
     }
 
     public int getCheck_level() {
