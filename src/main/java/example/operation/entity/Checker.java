@@ -12,6 +12,7 @@ public class Checker {
     private String wx_user_id;
     private int check_level;
     private int dept_from;
+    private int dept_check;
     private String manager_wx_user_id;
     private String timestamp;
     private String create_time;
@@ -50,6 +51,14 @@ public class Checker {
 
     public void setDept_from(int dept_from) {
         this.dept_from = dept_from;
+    }
+
+    public int getDept_check() {
+        return dept_check;
+    }
+
+    public void setDept_check(int dept_from) {
+        this.dept_from = dept_check;
     }
 
     public int getCheck_level() {
@@ -101,6 +110,7 @@ public class Checker {
                 ", wx_user_id='" + wx_user_id + '\'' +
                 ", check_level=" + check_level +
                 ", dept_from=" + dept_from +
+                ", dept_check=" + dept_check +
                 ", manager_wx_user_id='" + manager_wx_user_id + '\'' +
                 ", timestamp='" + timestamp + '\'' +
                 ", create_time='" + create_time + '\'' +

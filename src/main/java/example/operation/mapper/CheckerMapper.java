@@ -35,8 +35,8 @@ public interface CheckerMapper {
 
     /************************** insert **************************************/
     //插入审核员操作
-    @Insert("insert into checker(wx_user_name, wx_user_id, dept_from, check_level, manager_wx_user_id, timestamp, create_time) " +
-                "values(#{wx_user_name}, #{wx_user_id},#{dept_from},  #{check_level}, #{manager_wx_user_id}, #{timestamp}, #{create_time})")
+    @Insert("insert into checker(wx_user_name, wx_user_id, dept_from, dept_check, check_level, manager_wx_user_id, timestamp, create_time) " +
+                "values(#{wx_user_name}, #{wx_user_id},#{dept_from}, #{dept_check}, #{check_level}, #{manager_wx_user_id}, #{timestamp}, #{create_time})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     public int grantCheckerRight(Checker checker);
 
