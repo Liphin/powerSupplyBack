@@ -99,7 +99,7 @@ public class SqlProvider {
         if (checkLevel == 2) {
             stringBuilder.append("select * from dynamicinfo where type=7 and status_cd=2 order by create_time desc");
         } else {
-            stringBuilder.append("select * from dynamicinfo where type=7 and (status_cd=1 or status_cd=2 or status_cd=5) and (dept_from=" + department + " or dept_check=" + department + ") order by create_time desc");
+            stringBuilder.append("select * from dynamicinfo where type=7 and (status_cd=1 or status_cd=2 or status_cd=5) and (dept_check=" + department + ") order by create_time desc");
         }
         return stringBuilder.toString();
     }

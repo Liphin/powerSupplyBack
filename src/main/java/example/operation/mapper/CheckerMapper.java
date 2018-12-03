@@ -21,8 +21,8 @@ public interface CheckerMapper {
     //public Checker getChecker(@Param("wx_user_id") String wx_user_id);
 
     //获取初审审核员的数据
-    @Select("select * from checker where dept_from=#{dept_from} and check_level=1")
-    public List<Checker> getFirstChecker(@Param("dept_from") int dept_from);
+    @Select("select * from checker where dept_from=#{dept_check} and check_level=1")
+    public List<Checker> getFirstChecker(@Param("dept_check") int dept_check);
 
     //获取终审审核员的数据
     @Select("select * from checker where check_level=2")
