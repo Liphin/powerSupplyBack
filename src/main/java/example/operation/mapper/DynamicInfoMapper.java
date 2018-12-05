@@ -182,7 +182,7 @@ public interface DynamicInfoMapper {
     public List<DynamicInfo> getFirstCheckAndRejectNews(String createTime);
 
     //获取指定范围内的发布的朋友圈数据
-    @Select("select * from dynamicinfo where type=7 and status_cd=3 and create_time<#{create_time} order by create_time desc")
+    @Select("select * from dynamicinfo where type=7 and status_cd=3 and create_time<#{create_time} order by create_time desc limit 20")
     public List<DynamicInfo> getSuccessNews(String createTime);
 
 
