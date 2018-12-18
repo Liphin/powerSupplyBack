@@ -15,15 +15,6 @@ public class Manager {
     private String password;
     private String timestamp;
     private String create_time;
-
-    public int getLvl_cd() {
-        return lvl_cd;
-    }
-
-    public void setLvl_cd(int lvl_cd) {
-        this.lvl_cd = lvl_cd;
-    }
-
     private String update_time;
 
     public Manager() {
@@ -67,6 +58,14 @@ public class Manager {
 
     public void setManager_name(String manager_name) {
         this.manager_name = manager_name;
+    }
+
+    public int getLvl_cd() {
+        return lvl_cd;
+    }
+
+    public void setLvl_cd(int lvl_cd) {
+        this.lvl_cd = lvl_cd;
     }
 
     public String getMobile() {
