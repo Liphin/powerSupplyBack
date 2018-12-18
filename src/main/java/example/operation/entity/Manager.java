@@ -8,12 +8,22 @@ public class Manager {
     private int id;
     private String manager_account;
     private String manager_name;
+    private int lvl_cd;
     private String wx_user_id;
     private String wx_user_name;
     private String mobile;
     private String password;
     private String timestamp;
     private String create_time;
+
+    public int getLvl_cd() {
+        return lvl_cd;
+    }
+
+    public void setLvl_cd(int lvl_cd) {
+        this.lvl_cd = lvl_cd;
+    }
+
     private String update_time;
 
     public Manager() {
@@ -105,6 +115,7 @@ public class Manager {
                 "id=" + id +
                 ", manager_account='" + manager_account + '\'' +
                 ", manager_name='" + manager_name + '\'' +
+                ", lvl_cd=" + lvl_cd +
                 ", wx_user_id='" + wx_user_id + '\'' +
                 ", wx_user_name='" + wx_user_name + '\'' +
                 ", mobile='" + mobile + '\'' +
