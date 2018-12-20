@@ -53,4 +53,8 @@ public interface DynamicInfoHqMapper {
     //更新动态信息表的总浏览次数
     @Update("update dynamicinfohq set view_count=view_count+1 where timestamp=#{dynamic_timestamp}")
     public int updateDynamicViewCountHq(@Param("dynamic_timestamp") String dynamic_timestamp);
+
+    //更新用户新后勤服务数据置顶功能
+    @Update("update dynamicinfohq set stick_cd=#{stick_cd}, stick_time=#{stick_time} where timestamp=#{timestamp}")
+    public int setDynamicStickInfo(@Param("stick_cd") String stick_cd, @Param("stick_time") String stick_time, @Param("timestamp") String timestamp);
 }

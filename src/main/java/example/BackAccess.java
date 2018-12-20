@@ -146,6 +146,11 @@ public class BackAccess {
             ResponseData responseData = NewsOpt.setDynamicStickInfo(msg);
             httpResponse(ctx, msg, responseData);
         }
+        //置顶功能设置
+        else if (uri.equals("/setDynamicStickInfoHq")) {
+            ResponseData responseData = NewsOpt.setDynamicStickInfoHq(msg);
+            httpResponse(ctx, msg, responseData);
+        }
         //管理员在PC客户端审核时搜索相关标题的数据
         else if (uri.equals("/searchNewsList")) {
             ResponseData responseData = NewsOpt.searchNewsList(msg);

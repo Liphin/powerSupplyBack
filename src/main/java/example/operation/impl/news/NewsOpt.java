@@ -958,6 +958,34 @@ public class NewsOpt {
         });
     }
 
+    /**
+     * 设置动态信息的置顶设置
+     * @return
+     */
+    public static ResponseData setDynamicStickInfoHq(Object msg) {
+        return CommonService.simpleImplOpt(true, (responseData, sqlSession) -> {
+
+            //获取传递过来的数据
+            String message = "";
+            Map<String, Object> map = FormData.getParam(msg);
+
+            //设置置顶标记及置顶时间戳
+            int num = sqlSession.update(Mapper.SET_DYNAMIC_STICK_INFO_HQ, map);
+
+            //返回数据
+            if (num > 0) {
+                //数据库更新成功
+                Assemble.responseSuccessSetting(responseData, null);
+
+            } else {
+                //数据库更新失败
+                message = "db error";
+                NewsOpt.logger.error(message);
+                Assemble.responseErrorSetting(responseData, 401, message);
+            }
+        });
+    }
+
 
 
     /**

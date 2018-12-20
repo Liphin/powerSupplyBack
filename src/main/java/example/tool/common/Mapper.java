@@ -124,6 +124,7 @@ public class Mapper {
     //update
     public static final String UPDATE_FRIEND = "updateFriend";
     public static final String SET_DYNAMIC_STICK_INFO = "setDynamicStickInfo";
+    public static final String SET_DYNAMIC_STICK_INFO_HQ = "setDynamicStickInfoHq";
     public static final String INSERT_TEST_FRIEND_RECORD_TO_DYNAMICINFO = "insertTestFriendRecordToDynamicInfo";
     public static final String UPDATE_DYNAMIC_VIEW_COUNT = "updateDynamicViewCount";
     public static final String UPDATE_DYNAMIC_VIEW_COUNT_HQ = "updateDynamicViewCountHq";
