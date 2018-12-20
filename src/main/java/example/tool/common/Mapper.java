@@ -68,22 +68,29 @@ public class Mapper {
     //dynamicInfo表  新闻类数据操作
     //select
     public static final String GET_SINGLE_NEWS_DETAIL_INFO = "getSingleNewsDetailInfo";
+    public static final String GET_SINGLE_NEWS_DETAIL_INFO_HQ = "getSingleNewsDetailInfoHq";
     public static final String GET_ALL_NEWS_INFO = "getAllNewsInfo";
     public static final String GET_RANGE_NEWS_INFO_TO_BG = "getRangeNewsInfoToBg";
+    public static final String GET_RANGE_NEWS_INFO_TO_BG_HQ = "getRangeNewsInfoToBgHq";
     public static final String GET_RANGE_NEWS_INFO_TO_PHONE = "getRangeNewsInfoToPhone";
     public static final String GET_NEWS_NUM = "getNewsNum";
+    public static final String GET_NEWS_NUM_HQ = "getNewsNumHq";
     public static final String SEARCH_NEWS = "searchNews";
     public static final String SEARCH_USER_NEWS = "searchUserNews";
     public static final String SEARCH_NEWS_LIST = "searchNewsList";
+    public static final String SEARCH_NEWS_LIST_HQ = "searchNewsListHq";
     public static final String GET_DYNAMIC_INFO = "getDynamicInfo";
 
     //insert
     public static final String INSERT_NEW_NEWS = "insertNewNews";
+    public static final String INSERT_NEW_NEWS_HQ = "insertNewNewsHq";
     public static final String DELETE_NEWS = "deleteNews";
+    public static final String DELETE_NEWS_HQ = "deleteNewsHq";
     public static final String INSERT_TEST_NEWS_RECORD_TO_DYNAMICINFO = "insertTestNewsRecordToDynamicInfo";
 
     //update
     public static final String UPDATE_NEWS = "updateNews";
+    public static final String UPDATE_NEWS_HQ = "updateNewsHq";
 
 
     //dynamicInfo表  朋友圈类数据操作**********************
@@ -119,7 +126,9 @@ public class Mapper {
     public static final String SET_DYNAMIC_STICK_INFO = "setDynamicStickInfo";
     public static final String INSERT_TEST_FRIEND_RECORD_TO_DYNAMICINFO = "insertTestFriendRecordToDynamicInfo";
     public static final String UPDATE_DYNAMIC_VIEW_COUNT = "updateDynamicViewCount";
+    public static final String UPDATE_DYNAMIC_VIEW_COUNT_HQ = "updateDynamicViewCountHq";
     public static final String UPDATE_DYNAMIC_PITCH_COUNT = "updateDynamicPitchCount";
+    public static final String UPDATE_DYNAMIC_PITCH_COUNT_HQ = "updateDynamicPitchCountHq";
 //    public static final String UPDATE_DYNAMIC_DEPT_STATUS_SCORE = "updateDynamicDeptStatusScore";
 //    public static final String UPDATE_DYNAMIC_DEPT_STATUS_TITLE = "updateDynamicDeptStatusTitle";
     public static final String UPDATE_DYNAMIC_INFO_STATUS = "updateDynamicInfoStatus";

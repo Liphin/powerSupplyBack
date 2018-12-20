@@ -66,9 +66,19 @@ public class BackAccess {
             ResponseData responseData = NewsOpt.saveNewsData(msg);
             httpResponse(ctx, msg, responseData);
         }
+        //保存后勤服务数据
+        else if (uri.equals("/saveHqNewsData")) {
+            ResponseData responseData = NewsOpt.saveHqNewsData(msg);
+            httpResponse(ctx, msg, responseData);
+        }
         //拷贝新闻数据
         else if (uri.equals("/copyNews")) {
             ResponseData responseData = NewsOpt.copyNews(msg);
+            httpResponse(ctx, msg, responseData);
+        }
+        //拷贝后勤服务数据
+        else if (uri.equals("/copyNewsHq")) {
+            ResponseData responseData = NewsOpt.copyNewsHq(msg);
             httpResponse(ctx, msg, responseData);
         }
         //删除新闻数据
@@ -76,14 +86,29 @@ public class BackAccess {
             ResponseData responseData = NewsOpt.deleteNews(msg);
             httpResponse(ctx, msg, responseData);
         }
+        //删除后勤服务数据
+        else if (uri.equals("/deleteNewsHq")) {
+            ResponseData responseData = NewsOpt.deleteNewsHq(msg);
+            httpResponse(ctx, msg, responseData);
+        }
         //批量删除新闻数据
         else if (uri.equals("/deleteBatchNews")) {
             ResponseData responseData = NewsOpt.deleteBatchNews(msg);
             httpResponse(ctx, msg, responseData);
         }
+        //批量删除后勤服务数据
+        else if (uri.equals("/deleteBatchNewsHq")) {
+            ResponseData responseData = NewsOpt.deleteBatchNewsHq(msg);
+            httpResponse(ctx, msg, responseData);
+        }
         //获取指定范围内的新闻数据
         else if (uri.equals("/getRangeNewsListToBg")) {
             ResponseData responseData = NewsOpt.getRangeNewsListToBg(msg);
+            httpResponse(ctx, msg, responseData);
+        }
+        //获取指定范围内的后勤服务数据
+        else if (uri.equals("/getRangeNewsListToBgHq")) {
+            ResponseData responseData = NewsOpt.getRangeNewsListToBgHq(msg);
             httpResponse(ctx, msg, responseData);
         }
         //获取某条新闻详情信息
@@ -96,9 +121,19 @@ public class BackAccess {
             ResponseData responseData = NewsOpt.getUserDynamicInfo(msg);
             httpResponse(ctx, msg, responseData);
         }
+        //获取该用户对动态后勤服务的用户操作数据情况
+        else if (uri.equals("/getUserDynamicInfoHq")) {
+            ResponseData responseData = NewsOpt.getUserDynamicInfoHq(msg);
+            httpResponse(ctx, msg, responseData);
+        }
         //更新用户对动态新闻的点赞情况
         else if (uri.equals("/updatePitchCount")) {
             ResponseData responseData = NewsOpt.updatePitchCount(msg);
+            httpResponse(ctx, msg, responseData);
+        }
+        //更新用户对动态新闻的点赞情况
+        else if (uri.equals("/updatePitchCountHq")) {
+            ResponseData responseData = NewsOpt.updatePitchCountHq(msg);
             httpResponse(ctx, msg, responseData);
         }
         //上传资源信息
@@ -114,6 +149,11 @@ public class BackAccess {
         //管理员在PC客户端审核时搜索相关标题的数据
         else if (uri.equals("/searchNewsList")) {
             ResponseData responseData = NewsOpt.searchNewsList(msg);
+            httpResponse(ctx, msg, responseData);
+        }
+        //管理员在PC客户端审核时搜索相关标题的数据
+        else if (uri.equals("/searchNewsListHq")) {
+            ResponseData responseData = NewsOpt.searchNewsListHq(msg);
             httpResponse(ctx, msg, responseData);
         }
 
