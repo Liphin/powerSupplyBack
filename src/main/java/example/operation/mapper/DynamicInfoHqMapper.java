@@ -56,5 +56,5 @@ public interface DynamicInfoHqMapper {
 
     //更新用户新后勤服务数据置顶功能
     @Update("update dynamicinfohq set stick_cd=#{stick_cd}, stick_time=#{stick_time} where timestamp=#{timestamp}")
-    public int setDynamicStickInfo(@Param("stick_cd") String stick_cd, @Param("stick_time") String stick_time, @Param("timestamp") String timestamp);
+    public int setDynamicStickInfoHq(@Param("stick_cd") String stick_cd, @Param("stick_time") String stick_time, @Param("timestamp") String timestamp);
 }
