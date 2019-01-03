@@ -229,6 +229,11 @@ public class BackAccess {
             ResponseData responseData = FriendCircleOpt.searchFriendCircle(msg);
             httpResponse(ctx, msg, responseData);
         }
+        //管理员在PC客户端审核时搜索相关标题的数据
+        else if (uri.equals("/searchFriendCirclePc")) {
+            ResponseData responseData = FriendCircleOpt.searchFriendCirclePc(msg);
+            httpResponse(ctx, msg, responseData);
+        }
         //审核操作时获取该条朋友圈消息所有图片数据和消息体信息
         else if (uri.equals("/getDynamicImgAndInfo")) {
             ResponseData responseData = FriendCircleOpt.getDynamicImgAndInfo(msg);

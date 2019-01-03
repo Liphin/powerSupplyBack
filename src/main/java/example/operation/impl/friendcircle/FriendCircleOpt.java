@@ -617,6 +617,20 @@ public class FriendCircleOpt {
         });
     }
 
+    /**
+     * 后台前端搜索指定匹配字段的新闻数据
+     *
+     * @param msg
+     * @return
+     */
+    public static ResponseData searchFriendCirclePc(Object msg) {
+        return CommonService.simpleImplOpt(false, (responseData, sqlSession) -> {
+            DynamicInfo dynamicInfo = (DynamicInfo) FormData.getParam(msg, DynamicInfo.class);
+            List<DynamicInfo> list = sqlSession.selectList(Mapper.SEARCH_FRIEND_CIRCLE_NEWS_PC, dynamicInfo);
+            Assemble.responseSuccessSetting(responseData, list);
+        });
+    }
+
 //    /**
 //     * 保存动态消息上传图片信息
 //     *
