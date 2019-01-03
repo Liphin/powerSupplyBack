@@ -178,7 +178,7 @@ public interface DynamicInfoMapper {
     public List<DynamicInfo> searchFriendCircleNews(@Param("search") String search);
 
     //获取指定范围内的发布的朋友圈数据
-    @Select("select * from dynamicinfo where type=7 and status_cd in #{status_cd} and((title like concat('%',#{search},'%')) or (wx_user_name like concat('%',#{search},'%'))) order by create_time desc")
+    @Select("select * from dynamicinfo where type=7 and status_cd in (#{status_cd}) and((title like concat('%',#{search},'%')) or (wx_user_name like concat('%',#{search},'%'))) order by create_time desc")
     public List<DynamicInfo> searchFriendCircleNewsPc(@Param("search") String search,@Param("status_cd") String status_cd);
 
     //获取指定范围内的发布的朋友圈数据
