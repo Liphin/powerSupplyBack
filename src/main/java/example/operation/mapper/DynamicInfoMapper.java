@@ -177,9 +177,13 @@ public interface DynamicInfoMapper {
     @Select("select * from dynamicinfo where type=7 and ((title like concat('%',#{search},'%')) or (wx_user_name like concat('%',#{search},'%'))) order by create_time desc")
     public List<DynamicInfo> searchFriendCircleNews(@Param("search") String search);
 
-    //获取指定范围内的发布的朋友圈数据
-    @Select("select * from dynamicinfo where type=7 and status_cd in (#{status_cd}) and((title like concat('%',#{search},'%')) or (wx_user_name like concat('%',#{search},'%'))) order by create_time desc")
-    public List<DynamicInfo> searchFriendCircleNewsPc(@Param("search") String search,@Param("status_cd") String status_cd);
+//    //获取指定范围内的发布的朋友圈数据
+//    @Select("select * from dynamicinfo where type=7 and status_cd in (#{status_cd}) and((title like concat('%',#{search},'%')) or (wx_user_name like concat('%',#{search},'%'))) order by create_time desc")
+//    public List<DynamicInfo> searchFriendCircleNewsPc(@Param("search") String search,@Param("status_cd") String status_cd);
+
+    //管理员在手机客户端审核时搜索相关标题的数据
+    @SelectProvider(type = SqlProvider.class, method = "searchFriendCircleNewsPc")
+    public List<DynamicInfo> searchFriendCircleNewsPc(Map<String, Object> map);
 
     //获取指定范围内的发布的朋友圈数据
     @Select("select * from dynamicinfo where type=7 and (status_cd=1 or status_cd=4) and create_time<#{create_time} order by create_time desc limit 20")
