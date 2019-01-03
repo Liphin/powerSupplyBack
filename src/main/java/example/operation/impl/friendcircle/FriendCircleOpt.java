@@ -626,7 +626,7 @@ public class FriendCircleOpt {
     public static ResponseData searchFriendCirclePc(Object msg) {
         return CommonService.simpleImplOpt(false, (responseData, sqlSession) -> {
             DynamicInfo dynamicInfo = (DynamicInfo) FormData.getParam(msg, DynamicInfo.class);
-            List<DynamicInfo> list = sqlSession.selectList(Mapper.SEARCH_FRIEND_CIRCLE_NEWS_PC, map);
+            List<DynamicInfo> list = sqlSession.selectList(Mapper.SEARCH_FRIEND_CIRCLE_NEWS_PC, dynamicInfo);
             Assemble.responseSuccessSetting(responseData, list);
         });
     }
