@@ -70,6 +70,7 @@ public class Common {
     public static String DEPARTMENT = "department";
     public static String SCORE = "score";
     public static String SEARCH = "search";
+    public static String WATCH = "watch";
 
 
     //config文件的配置参数

@@ -542,6 +542,33 @@ public class FriendCircleOpt {
         return responseData;
     }
 
+    /**
+     * 获取朋友圈的状态信息
+     *
+     * @param msg
+     * @return
+     */
+    public static ResponseData watchAppFun(Object msg) {
+        ResponseData responseData = new ResponseData(StatusCode.ERROR.getValue());
+        SqlSession sqlSession = MybatisUtils.getSession();
+        String message = "";
+        try {
+            //Map<String, Object> map = FormData.getParam(msg);
+            Map<String, Object> data = new HashMap<>();
+            data.put(Common.WATCH, "OK"); //返回动态信息
+            Assemble.responseSuccessSetting(responseData, data);
+
+        } catch (Exception e) {
+            message = "sys error";
+            FriendCircleOpt.logger.debug(message, e);
+            Assemble.responseErrorSetting(responseData, 500, message);
+
+        } finally {
+            CommonService.databaseCommitClose(sqlSession, responseData, false);
+        }
+        return responseData;
+    }
+
 
     /**
      * 获取朋友圈所有资源文件数据

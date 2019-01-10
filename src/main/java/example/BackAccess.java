@@ -272,6 +272,11 @@ public class BackAccess {
             ResponseData responseData = FriendCircleOpt.selectFriendCircleUpdateTime(msg);
             httpResponse(ctx, msg, responseData);
         }
+        //监控后台程序
+        else if (uri.equals("/watchAppFun")) {
+            ResponseData responseData = FriendCircleOpt.watchAppFun(msg);
+            httpResponse(ctx, msg, responseData);
+        }
 
 
         //获取所有朋友圈数据
