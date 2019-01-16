@@ -153,11 +153,11 @@ public class SqlProvider {
         StringBuilder stringBuilder = new StringBuilder();
         String statusCd = String.valueOf(map.get(Common.STATUS_CD));
         String search = String.valueOf(map.get(Common.SEARCH));
+        String createTime = String.valueOf(map.get(Common.CREATE_TIME));
         //根据审核级别动态获取相应数据
-        stringBuilder.append("select * from dynamicinfo where type=7 and status_cd in ("+statusCd+") and ((title like concat('%','" + search + "','%')) or (wx_user_name like concat('%','" + search + "','%'))) order by create_time desc");
+        stringBuilder.append("select * from dynamicinfo where create_time<("+createTime+") and type=7 and status_cd in ("+statusCd+") and ((title like concat('%','" + search + "','%')) or (wx_user_name like concat('%','" + search + "','%'))) order by create_time desc limit 120");
         return stringBuilder.toString();
     }
-
 
     /**
      * 动态信息表中插入新闻测试数据
