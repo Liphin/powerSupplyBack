@@ -185,6 +185,10 @@ public interface DynamicInfoMapper {
     @SelectProvider(type = SqlProvider.class, method = "searchFriendCircleNewsPc")
     public List<DynamicInfo> searchFriendCircleNewsPc(Map<String, Object> map);
 
+    //管理员在手机客户端审核时搜索相关标题的数据数目
+    @SelectProvider(type = SqlProvider.class, method = "searchFriendCircleNewsPcNum")
+    public int searchFriendCircleNewsPcNum(Map<String, Object> map);
+
     //获取指定范围内的发布的朋友圈数据
     @Select("select * from dynamicinfo where type=7 and (status_cd=1 or status_cd=4) and create_time<#{create_time} order by create_time desc limit 20")
     public List<DynamicInfo> getFirstCheckAndRejectNews(String createTime);

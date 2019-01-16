@@ -654,7 +654,12 @@ public class FriendCircleOpt {
         return CommonService.simpleImplOpt(false, (responseData, sqlSession) -> {
             Map<String, Object> map = FormData.getParam(msg);
             List<DynamicInfo> list = sqlSession.selectList(Mapper.SEARCH_FRIEND_CIRCLE_NEWS_PC, map);
-            Assemble.responseSuccessSetting(responseData, list);
+            int newsNum = sqlSession.selectOne(Mapper.SEARCH_FRIEND_CIRCLE_NEWS_PC_NUM, map);
+            Map<String, Object> data = new HashMap<String, Object>(2);
+            data.put(Common.TOTAL_NUM, newsNum);
+            data.put(Common.FRIEND_CIRCLE_LIST_DATA, list);
+            Assemble.responseSuccessSetting(responseData, data);
+            //Assemble.responseSuccessSetting(responseData, list);
         });
     }
 

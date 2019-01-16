@@ -160,6 +160,22 @@ public class SqlProvider {
     }
 
     /**
+     * 管理员在手机客户端审核时搜索相关标题的数据的总数目
+     *
+     * @param map
+     * @return
+     */
+    public String searchFriendCircleNewsPcNum(Map<String, Object> map) {
+        StringBuilder stringBuilder = new StringBuilder();
+        String statusCd = String.valueOf(map.get(Common.STATUS_CD));
+        String search = String.valueOf(map.get(Common.SEARCH));
+        String createTime = String.valueOf(map.get(Common.CREATE_TIME));
+        //根据审核级别动态获取相应数据
+        stringBuilder.append("select count(*) from dynamicinfo where type=7 and status_cd in ("+statusCd+") and ((title like concat('%','" + search + "','%')) or (wx_user_name like concat('%','" + search + "','%'))) ");
+        return stringBuilder.toString();
+    }
+
+    /**
      * 动态信息表中插入新闻测试数据
      *
      * @return

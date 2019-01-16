@@ -113,6 +113,7 @@ public class Mapper {
     public static final String GET_DYNAMIC_UPDATETIME = "getDynamicUpdateTime";
     public static final String SEARCH_FRIEND_CIRCLE_NEWS = "searchFriendCircleNews";
     public static final String SEARCH_FRIEND_CIRCLE_NEWS_PC = "searchFriendCircleNewsPc";
+    public static final String SEARCH_FRIEND_CIRCLE_NEWS_PC_NUM = "searchFriendCircleNewsPcNum";
     public static final String GET_FRIEND_CIRCLE_INFO = "selectFriendCircleInfo";
 
     //insert
