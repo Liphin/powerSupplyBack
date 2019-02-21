@@ -929,6 +929,66 @@ public class NewsOpt {
         return responseData;
     }
 
+    /**
+     * 后勤服务上传资源文件信息
+     *
+     * @param msg
+     */
+    public static ResponseData uploadResourceHq(Object msg) {
+        ResponseData responseData = new ResponseData(StatusCode.ERROR.getValue());
+        FileOutputStream out = null;
+        String message = "";
+        try {
+            Map<String, Object> map = FormData.getParam(msg);
+            FileUpload fileUpload = (FileUpload) map.get(Common.NEW_RESOURCE);
+            String timestamp = (String) map.get(Common.TIMESTAMP);
+
+            //获取保存到系统的路径
+            String resourceFilePath = GlobalConfig.getProperties(Common.DYNAMICINFOS_SYS_PATH_RESOURCE);
+            //检查上传的文件类型，如果是gif，则保留该类型图片
+            String fileName = "";
+            String fileOrgName = (String)fileUpload.getName();
+            NewsOpt.logger.debug(fileOrgName);
+            String fileType =fileOrgName.substring(fileOrgName.lastIndexOf("."),fileOrgName.length());
+            message = "the file type is: ";
+            NewsOpt.logger.debug(message, fileType);
+
+            if (fileType == "gif") {
+                fileName = timestamp + "_" + CommonService.getUnionId() + Common.SUFFIX_GIF;
+            }
+            else {
+                fileName = timestamp + "_" + CommonService.getUnionId() + Common.SUFFIX_PNG;
+            }
+
+            //拼接最终保存的文件名
+            String resourceFileAbsPath = resourceFilePath + fileName;
+            File file = new File(resourceFileAbsPath);
+            //如果文件不存在则创建文件
+            if (!file.exists()) file.createNewFile();
+            //输出内容到文件
+            out = new FileOutputStream(file, false); //不append，直接覆写
+            out.write(fileUpload.get());
+            out.flush();
+
+            Assemble.responseSuccessSetting(responseData, fileName);
+
+        } catch (Exception e) {
+            message = "uploadResource error";
+            NewsOpt.logger.error(message, e);
+            Assemble.responseErrorSetting(responseData, 500, message);
+
+        } finally {
+            if (out != null) {
+                try {
+                    out.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return responseData;
+    }
+
 
     /**
      * 设置动态信息的置顶设置

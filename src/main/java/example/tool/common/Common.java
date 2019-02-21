@@ -81,5 +81,6 @@ public class Common {
     //后缀名参数
     public static String SUFFIX_INDEX_HTML = "-index.html";
     public static String SUFFIX_PNG = ".png";
+    public static String SUFFIX_GIF = ".gif";
 
 }

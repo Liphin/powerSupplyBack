@@ -141,6 +141,11 @@ public class BackAccess {
             ResponseData responseData = NewsOpt.uploadResource(msg);
             httpResponse(ctx, msg, responseData);
         }
+        //后勤服务上传资源信息
+        else if (uri.equals("/uploadResourceHq")) {
+            ResponseData responseData = NewsOpt.uploadResourceHq(msg);
+            httpResponse(ctx, msg, responseData);
+        }
         //置顶功能设置
         else if (uri.equals("/setDynamicStickInfo")) {
             ResponseData responseData = NewsOpt.setDynamicStickInfo(msg);
