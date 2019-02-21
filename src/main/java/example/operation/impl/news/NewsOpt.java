@@ -948,13 +948,10 @@ public class NewsOpt {
             //检查上传的文件类型，如果是gif，则保留该类型图片
             String fileName = "";
             String fileOrgName = fileUpload.getFilename();
-            Integer len = fileOrgName.length();
-            NewsOpt.logger.debug(fileOrgName,len);
-            String fileType =fileOrgName.substring(fileOrgName.lastIndexOf(".")+1,len);
-            message = "the file type is: ";
-            NewsOpt.logger.debug(message, fileType);
+            String fileType =fileOrgName.substring(fileOrgName.lastIndexOf(".")+1);
+            NewsOpt.logger.debug("the fileType is : "+fileType);
 
-            if (fileType == "gif") {
+            if (fileType.equals("gif")) {
                 fileName = timestamp + "_" + CommonService.getUnionId() + Common.SUFFIX_GIF;
             }
             else {
