@@ -947,9 +947,9 @@ public class NewsOpt {
             String resourceFilePath = GlobalConfig.getProperties(Common.DYNAMICINFOS_SYS_PATH_RESOURCE);
             //检查上传的文件类型，如果是gif，则保留该类型图片
             String fileName = "";
-            String fileOrgName = (String)fileUpload.getName();
+            String fileOrgName = fileUpload.getName();
             NewsOpt.logger.debug(fileOrgName);
-            String fileType =fileOrgName.substring(fileOrgName.lastIndexOf("."),fileOrgName.length());
+            String fileType =fileOrgName.substring(fileOrgName.lastIndexOf(".")+1);
             message = "the file type is: ";
             NewsOpt.logger.debug(message, fileType);
 
