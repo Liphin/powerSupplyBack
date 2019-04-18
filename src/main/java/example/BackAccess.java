@@ -6,6 +6,7 @@ import example.operation.impl.checker.CheckerOpt;
 import example.operation.impl.friendcircle.FriendCircleOpt;
 import example.operation.impl.login.LoginOpt;
 import example.operation.impl.news.NewsOpt;
+import example.operation.impl.vote.VoteOpt;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -111,6 +112,11 @@ public class BackAccess {
             ResponseData responseData = NewsOpt.getRangeNewsListToBgHq(msg);
             httpResponse(ctx, msg, responseData);
         }
+        //获取指定范围内的后勤投票服务数据
+        else if (uri.equals("/getRangeVoteListToBgHq")) {
+            ResponseData responseData = VoteOpt.getRangeVoteListToBgHq(msg);
+            httpResponse(ctx, msg, responseData);
+        }
         //获取某条新闻详情信息
         else if (uri.equals("/getRangeNewsListToPhone")) {
             ResponseData responseData = NewsOpt.getRangeNewsListToPhone(msg);
@@ -164,6 +170,11 @@ public class BackAccess {
         //管理员在PC客户端审核时搜索相关标题的数据
         else if (uri.equals("/searchNewsListHq")) {
             ResponseData responseData = NewsOpt.searchNewsListHq(msg);
+            httpResponse(ctx, msg, responseData);
+        }
+        //管理员在PC客户端审核时搜索相关标题的数据
+        else if (uri.equals("/searchVoteListHq")) {
+            ResponseData responseData = VoteOpt.searchVoteListHq(msg);
             httpResponse(ctx, msg, responseData);
         }
 

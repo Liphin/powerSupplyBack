@@ -15,13 +15,24 @@ public interface DynamicInfoHqMapper {
     @Select("select * from dynamicinfohq where type=9 and create_time<#{create_time} order by create_time desc limit 120")
     public List<DynamicInfoHq> getRangeNewsInfoToBgHq(@Param("create_time") String create_time);
 
+    @Select("select * from dynamicinfohq where type<>9 and create_time<#{create_time} order by create_time desc limit 120")
+    public List<DynamicInfoHq> getRangeVoteInfoToBgHq(@Param("create_time") String create_time);
+
     //获取所有新闻数据的记录数
     @Select("select count(*) from dynamicinfohq where type=9")
     public int getNewsNumHq();
 
-    //获取指定title搜索的新闻发布数据
+    //获取所有新闻数据的记录数
+    @Select("select count(*) from dynamicinfohq where type<>9")
+    public int getVoteNumHq();
+
+    //获取指定title搜索的后勤服务发布数据
     @Select("select * from dynamicinfoHq where type=9 and (title like concat('%',#{search},'%')) order by create_time desc")
     public List<DynamicInfoHq> searchNewsListHq(@Param("search") String search);
+
+    //获取指定title搜索的投票服务发布数据
+    @Select("select * from dynamicinfoHq where type<>9 and (title like concat('%',#{search},'%')) order by create_time desc")
+    public List<DynamicInfoHq> searchVoteListHq(@Param("search") String search);
 
     //获取指定timestamp的新闻数据
     @Select("select * from dynamicinfoHq where timestamp=#{dynamic_timestamp}")

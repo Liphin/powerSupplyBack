@@ -72,13 +72,16 @@ public class Mapper {
     public static final String GET_ALL_NEWS_INFO = "getAllNewsInfo";
     public static final String GET_RANGE_NEWS_INFO_TO_BG = "getRangeNewsInfoToBg";
     public static final String GET_RANGE_NEWS_INFO_TO_BG_HQ = "getRangeNewsInfoToBgHq";
+    public static final String GET_RANGE_VOTE_INFO_TO_BG_HQ = "getRangeVoteInfoToBgHq";
     public static final String GET_RANGE_NEWS_INFO_TO_PHONE = "getRangeNewsInfoToPhone";
     public static final String GET_NEWS_NUM = "getNewsNum";
     public static final String GET_NEWS_NUM_HQ = "getNewsNumHq";
+    public static final String GET_VOTE_NUM_HQ = "getVoteNumHq";
     public static final String SEARCH_NEWS = "searchNews";
     public static final String SEARCH_USER_NEWS = "searchUserNews";
     public static final String SEARCH_NEWS_LIST = "searchNewsList";
     public static final String SEARCH_NEWS_LIST_HQ = "searchNewsListHq";
+    public static final String SEARCH_VOTE_LIST_HQ = "searchVoteListHq";
     public static final String GET_DYNAMIC_INFO = "getDynamicInfo";
 
     //insert
