@@ -249,7 +249,8 @@ public class FriendCircleOpt {
 //                    resourceImgToCoverImg(dynamicimg);
 //                }
                 //应用场景： 1、用户创建项目场景， 2、用户更新项目场景， 3、管理员直接保存发布该朋友圈
-                resourceImgToCoverImg(dynamicimg);
+                //封面图片已在前端后台保存
+//                resourceImgToCoverImg(dynamicimg);
 
                 //保存新闻得到文件操作
                 saveHtmlFile(dynamicInfo);
