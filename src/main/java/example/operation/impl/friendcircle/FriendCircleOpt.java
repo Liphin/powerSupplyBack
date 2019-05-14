@@ -76,6 +76,44 @@ public class FriendCircleOpt {
     }
 
     /**
+     * 获取特定时间范围的朋友圈数据
+     *
+     * @param msg http传递的数据
+     */
+    public static ResponseData exportExcelCommit(Object msg) {
+        ResponseData responseData = new ResponseData(StatusCode.ERROR.getValue());
+        SqlSession sqlSession = MybatisUtils.getSession();
+        String message = "";
+        try {
+            Map<String, Object> map = FormData.getParam(msg);
+            List<DynamicInfo> newsList = sqlSession.selectList(Mapper.GET_EXPORT_FRIEND_CIRCLE_INFO_TO_BG, map);
+            int newsNum = sqlSession.selectOne(Mapper.GET_EXPORT_FRIEND_NUM,map);
+            //检查是否查找到指定起始位置及数目的新闻并返回相应结果
+            if (CommonService.checkNotNull(newsList)) {
+                //设置回传的返回数据
+                Map<String, Object> data = new HashMap<String, Object>(2);
+                data.put(Common.TOTAL_NUM, newsNum);
+                data.put(Common.FRIEND_CIRCLE_LIST_DATA, newsList);
+                Assemble.responseSuccessSetting(responseData, data);
+
+            } else {
+                message = "friend circle info not found";
+                FriendCircleOpt.logger.warn(message);
+                Assemble.responseErrorSetting(responseData, 401, message);
+            }
+
+        } catch (Exception e) {
+            message = "sys error";
+            FriendCircleOpt.logger.debug(message, e);
+            Assemble.responseErrorSetting(responseData, 500, message);
+
+        } finally {
+            CommonService.databaseCommitClose(sqlSession, responseData, false);
+        }
+        return responseData;
+    }
+
+    /**
      * 获取该用户发表的朋友圈所有数据
      *
      * @param msg http传递的数据

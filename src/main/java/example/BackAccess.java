@@ -378,6 +378,11 @@ public class BackAccess {
             ResponseData responseData = CheckerOpt.getSuccessNews(msg);
             httpResponse(ctx, msg, responseData);
         }
+        //获取指定范围内的后勤服务数据
+        else if (uri.equals("/exportExcelCommit")) {
+            ResponseData responseData = FriendCircleOpt.exportExcelCommit(msg);
+            httpResponse(ctx, msg, responseData);
+        }
 
 
         //若尚未消费该事件，则返回false

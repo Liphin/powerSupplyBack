@@ -118,6 +118,8 @@ public class Mapper {
     public static final String SEARCH_FRIEND_CIRCLE_NEWS_PC = "searchFriendCircleNewsPc";
     public static final String SEARCH_FRIEND_CIRCLE_NEWS_PC_NUM = "searchFriendCircleNewsPcNum";
     public static final String GET_FRIEND_CIRCLE_INFO = "selectFriendCircleInfo";
+    public static final String GET_EXPORT_FRIEND_CIRCLE_INFO_TO_BG = "getExportFriendCircleInfoToBg";
+    public static final String GET_EXPORT_FRIEND_NUM = "getExportFriendNum";
 
     //insert
     public static final String INSERT_NEW_FRIEND = "insertNewFriend";

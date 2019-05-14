@@ -140,9 +140,17 @@ public interface DynamicInfoMapper {
     @Select("select * from dynamicinfo where type=7 and create_time<#{create_time} order by create_time desc limit 120")
     public List<DynamicInfo> getRangeFriendCircleInfoToBg(@Param("create_time") String create_time);
 
+    //获取指定起始create_time以及数目的朋友圈数据-->返回后台前端
+    @Select("select * from dynamicinfo where type=7 and status_cd=3 and create_time>#{exportStartDate} and create_time<#{exportEndDate} order by create_time desc")
+    public List<DynamicInfo> getExportFriendCircleInfoToBg(@Param("exportStartDate") String exportStartDate,@Param("exportEndDate") String exportEndDate);
+
     //获取所有朋友圈数据的记录数
     @Select("select count(*) from dynamicinfo where type=7")
     public int getFriendNum();
+
+    //获取所有朋友圈数据的记录数
+    @Select("select count(*) from dynamicinfo where type=7 and status_cd=3 and create_time>#{exportStartDate} and create_time<#{exportEndDate}")
+    public int getExportFriendNum(@Param("exportStartDate") String exportStartDate,@Param("exportEndDate") String exportEndDate);
 
     //获取指定timestamp的新闻数据
     @Select("select * from dynamicimg where dynamic_timestamp=#{dynamic_timestamp}")
